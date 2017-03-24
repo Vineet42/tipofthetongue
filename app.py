@@ -12,7 +12,7 @@ def main():
     
 
 if __name__ == '__main__':
-    port = int(os.environ.get("PORT")
+    port = int(os.environ.get("PORT"))
     http_server = HTTPServer(WSGIContainer(app))
     http_server.listen(port)
     IOLoop.instance().start()
