@@ -7,10 +7,20 @@ import os
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/test")
 def main():
-	return render_template('minimal.html')
-    
+	return "test complete!"
+
+@app.route("/someonesTalking")
+def genResponse():
+	p = request.args.get('phrase')
+
+
+@app.route("/userResponded")
+def storeResponse():
+	p = request.args.get('phrase')
+	
+
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
