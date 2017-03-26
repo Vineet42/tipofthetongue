@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template
+from flask import render_template,request, jsonify
 from tornado.wsgi import WSGIContainer
 from tornado.httpserver import HTTPServer
 from tornado.ioloop import IOLoop
@@ -11,15 +11,23 @@ app = Flask(__name__)
 def main():
 	return "test complete!"
 
-@app.route("/someonesTalking")
-def genResponse():
-	p = request.args.get('phrase')
+@app.route("/speech/<isUser>", methods = ['POST'])
+def handleSpeech(isUser):
 
-
-@app.route("/userResponded")
-def storeResponse():
-	p = request.args.get('phrase')
 	
+	json = request.json
+	text = json.get('speech')
+	print(text)
+	#print(p);
+	if isUser is "true":
+		#store in model
+		return None
+	else:
+		#generate reccomendation
+		return "Hi, My name is Michael"
+
+
+
 
 
 if __name__ == '__main__':
