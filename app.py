@@ -3,6 +3,8 @@ from flask import render_template,request, jsonify
 from tornado.wsgi import WSGIContainer
 from tornado.httpserver import HTTPServer
 from tornado.ioloop import IOLoop
+import io
+
 import os
 
 app = Flask(__name__)
@@ -24,6 +26,7 @@ def handleSpeech():
 		#store in model
 		return jsonify({})
 	else:
+		f = io.StringIO(text)
 		#generate reccomendation
 		recc = "Hi, My name is Michael"
 
