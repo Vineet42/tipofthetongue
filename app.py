@@ -11,17 +11,18 @@ app = Flask(__name__)
 def main():
 	return "test complete!"
 
-@app.route("/speech/<isUser>", methods = ['POST'])
-def handleSpeech(isUser):
+@app.route("/speech", methods = ['POST'])
+def handleSpeech():
 
 	
 	json = request.json
 	text = json.get('speech')
-	print(text)
+	isUser = json.get('isUser')
+
 	#print(p);
-	if isUser is "true":
+	if isUser == "true":
 		#store in model
-		return None
+		return "null"
 	else:
 		#generate reccomendation
 		return "Hi, My name is Michael"
