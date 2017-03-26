@@ -22,10 +22,12 @@ def handleSpeech():
 	#print(p);
 	if isUser == "true":
 		#store in model
-		return "null"
+		return jsonify({})
 	else:
 		#generate reccomendation
-		return "Hi, My name is Michael"
+		recc = "Hi, My name is Michael"
+
+		return jsonify({'recc': recc})
 
 
 
